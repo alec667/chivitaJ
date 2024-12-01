@@ -3,9 +3,24 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        int N = 3;
+        int N = 10;
 
-        List<String> animales = Arrays.asList("el lobo", "el toro", "el perro", "el leon", "el caballo");
+        long inicio = System.nanoTime();
+
+        List<String> animales = Arrays.asList("El lobo", "El toro", "El perro", "El león", "El caballo", "La vaca", "El gato", "El elefante", "El tigre", "El mono",
+                "El oso", "La oveja", "El ciervo", "La cabra", "El cerdo", "El pato", "El ganso", "La gallina", "El gallo",
+                "La águila", "El cuervo", "La golondrina", "El halcón", "La paloma", "El ratón", "La rata", "El búho",
+                "La lechuza", "El pingüino", "El canguro", "La jirafa", "El rinoceronte", "El hipopótamo", "La ardilla",
+                "El castor", "La marmota", "El zorro", "La mofeta", "El tejón", "La nutria", "El mapache", "El puma",
+                "La pantera", "El guepardo", "El chacal", "La hiena", "El lémur", "La zarigüeya", "El walabí", "El koala",
+                "La tortuga", "El cocodrilo", "El caimán", "El lagarto", "La iguana", "El camaleón", "La serpiente",
+                "La anaconda", "La boa", "La víbora", "El escorpión", "La araña", "El ciempiés", "El milpiés", "La hormiga",
+                "La abeja", "La avispa", "El saltamontes", "La langosta", "El grillo", "La mariposa", "El gusano", "La oruga",
+                "La libélula", "El escarabajo", "El caracol", "La babosa", "La almeja", "El mejillón", "El cangrejo",
+                "La langosta2", "El camarón", "La gamba", "El pulpo", "La sepia", "El calamar", "El tiburón", "La ballena",
+                "El delfín", "La foca", "El león marino", "El pingüino emperador", "La estrella de mar", "El erizo de mar",
+                "La medusa", "El pez2", "El pez espada", "La manta raya", "El caballito de mar", "La anguila");
+
         Map<String, String> llamarA = new HashMap<>();
 
         System.out.println("Sal de ahí chivita chivita, sal de ahí de ese lugar");
@@ -27,6 +42,8 @@ public class Main {
             System.out.println("La chiva no quiere salir de ahí. Sal de ahí chivita chivita, sal de ahí de ese lugar");
         }
 
-
+        long fin = System.nanoTime();
+        double tiempo = (double) ((fin - inicio)/ 1000000);
+        System.out.println("Tiempo de ejecución: " + tiempo + " milisegundos");
     }
 }
