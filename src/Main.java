@@ -4,12 +4,15 @@ import static java.lang.Math.random;
 
 public class Main {
     public static void main(String[] args) {
-
-        int N = 10;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter N: ");
+        int N = sc.nextInt();
+        sc.close();
 
         long inicio = System.nanoTime();
 
-        List<String> animales = Arrays.asList("El lobo", "El toro", "El perro", "El león", "El caballo", "La vaca", "El gato", "El elefante", "El tigre", "El mono",
+        List<String> animales = Arrays.asList("El lobo", "El toro", "El perro", "El león",
+                "El caballo", "La vaca", "El gato", "El elefante", "El tigre", "El mono",
                 "El oso", "La oveja", "El ciervo", "La cabra", "El cerdo", "El pato", "El ganso", "La gallina", "El gallo",
                 "La águila", "El cuervo", "La golondrina", "El halcón", "La paloma", "El ratón", "La rata", "El búho",
                 "La lechuza", "El pingüino", "El canguro", "La jirafa", "El rinoceronte", "El hipopótamo", "La ardilla",
@@ -47,6 +50,6 @@ public class Main {
 
         long fin = System.nanoTime();
         double tiempo = (double) ((fin - inicio) / 1000000);
-        System.out.println("---------------->Tiempo de ejecución: " + tiempo + " milisegundos");
+        System.out.println("---------------->Tiempo de ejecución para N=" + N + ": " + tiempo + " milisegundos");
     }
 }
