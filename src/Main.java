@@ -4,6 +4,7 @@ import static java.lang.Math.random;
 
 public class Main {
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter N: ");
         int N = sc.nextInt();
@@ -30,7 +31,6 @@ public class Main {
 
         System.out.println("Sal de ahí chivita chivita, sal de ahí de ese lugar");
         String actualmente = "la chiva";
-
         for (int i = 0; i < N; i++) {
             String prox = animales.get((int) (random() * animales.size()));
             llamarA.put(actualmente, prox);
@@ -50,6 +50,7 @@ public class Main {
 
         long fin = System.nanoTime();
         double tiempo = (double) ((fin - inicio) / 1000000);
+
         System.out.println("---------------->Tiempo de ejecución para N=" + N + ": " + tiempo + " milisegundos");
     }
 }
