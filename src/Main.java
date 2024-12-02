@@ -28,29 +28,31 @@ public class Main {
 
         List<String> auxList = new ArrayList<>();
         Map<String, String> llamarA = new HashMap<>();
+        try {
+            System.out.println("Sal de ahí chivita chivita, sal de ahí de ese lugar");
+            String actualmente = "la chiva";
 
-        System.out.println("Sal de ahí chivita chivita, sal de ahí de ese lugar");
-        String actualmente = "la chiva";
-
-        for (int i = 0; i < N; i++) {
-            int rand= (int) (random() * animales.size());
-            String prox = animales.get(rand);
-            llamarA.put(actualmente, prox);
-            System.out.println("Hay que llamar a " + prox + " para que saque a " + actualmente);
-            actualmente = prox;
-            List<String> remover = new ArrayList<>();
-            String inspeccionar = "la chiva";
-            while (llamarA.containsKey(inspeccionar)) {
-                remover.add(0, llamarA.get(inspeccionar) + " no quiere sacar a " + inspeccionar);
-                inspeccionar = llamarA.get(inspeccionar);
+            for (int i = 0; i < N; i++) {
+                int rand = (int) (random() * animales.size());
+                String prox = animales.get(rand);
+                llamarA.put(actualmente, prox);
+                System.out.println("Hay que llamar a " + prox + " para que saque a " + actualmente);
+                actualmente = prox;
+                List<String> remover = new ArrayList<>();
+                String inspeccionar = "la chiva";
+                while (llamarA.containsKey(inspeccionar)) {
+                    remover.add(0, llamarA.get(inspeccionar) + " no quiere sacar a " + inspeccionar);
+                    inspeccionar = llamarA.get(inspeccionar);
+                }
+                for (String r : remover) {
+                    System.out.println(r);
+                }
+                System.out.println("La chiva no quiere salir de ahí. Sal de ahí chivita chivita, sal de ahí de ese lugar");
+                auxList.addFirst(animales.remove(rand));
             }
-            for (String r : remover) {
-                System.out.println(r);
-            }
-            System.out.println("La chiva no quiere salir de ahí. Sal de ahí chivita chivita, sal de ahí de ese lugar");
-            auxList.addFirst(animales.remove(rand));
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("No hay mas animales");
         }
-
         long fin = System.nanoTime();
         double tiempo = (double) ((fin - inicio) / 1000000);
         System.out.println("---------------->Tiempo de ejecución para N=" + N + ": " + tiempo + " milisegundos");
