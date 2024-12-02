@@ -11,7 +11,7 @@ public class Main {
 
         long inicio = System.nanoTime();
 
-        List<String> animales = Arrays.asList("El lobo", "El toro", "El perro", "El león",
+        List<String> animales = new ArrayList<>(List.of(new String[]{"El lobo", "El toro", "El perro", "El león",
                 "El caballo", "La vaca", "El gato", "El elefante", "El tigre", "El mono",
                 "El oso", "La oveja", "El ciervo", "La cabra", "El cerdo", "El pato", "El ganso", "La gallina", "El gallo",
                 "La águila", "El cuervo", "La golondrina", "El halcón", "La paloma", "El ratón", "La rata", "El búho",
@@ -24,15 +24,17 @@ public class Main {
                 "La libélula", "El escarabajo", "El caracol", "La babosa", "La almeja", "El mejillón", "El cangrejo",
                 "La langosta2", "El camarón", "La gamba", "El pulpo", "La sepia", "El calamar", "El tiburón", "La ballena",
                 "El delfín", "La foca", "El león marino", "El pingüino emperador", "La estrella de mar", "El erizo de mar",
-                "La medusa", "El pez2", "El pez espada", "La manta raya", "El caballito de mar", "La anguila");
+                "La medusa", "El pez2", "El pez espada", "La manta raya", "El caballito de mar", "La anguila"}));
 
+        List<String> auxList = new ArrayList<>();
         Map<String, String> llamarA = new HashMap<>();
 
         System.out.println("Sal de ahí chivita chivita, sal de ahí de ese lugar");
         String actualmente = "la chiva";
 
         for (int i = 0; i < N; i++) {
-            String prox = animales.get((int) (random() * animales.size()));
+            int rand= (int) (random() * animales.size());
+            String prox = animales.get(rand);
             llamarA.put(actualmente, prox);
             System.out.println("Hay que llamar a " + prox + " para que saque a " + actualmente);
             actualmente = prox;
@@ -46,10 +48,12 @@ public class Main {
                 System.out.println(r);
             }
             System.out.println("La chiva no quiere salir de ahí. Sal de ahí chivita chivita, sal de ahí de ese lugar");
+            auxList.addFirst(animales.remove(rand));
         }
 
         long fin = System.nanoTime();
         double tiempo = (double) ((fin - inicio) / 1000000);
         System.out.println("---------------->Tiempo de ejecución para N=" + N + ": " + tiempo + " milisegundos");
+        animales.addAll(auxList);
     }
 }
